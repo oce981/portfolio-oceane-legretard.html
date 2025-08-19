@@ -204,11 +204,9 @@ button:hover {
 
 .icon-container {
   display: flex;
-  flex-direction: column; /* image au-dessus, texte en dessous */
-  align-items: center;    /* centre horizontalement */
   justify-content: center;
-  text-align: center;     /* centre le texte */
-  gap: 8px;               /* espace entre l’image et le texte */
+  align-items: center;
+  margin-top: auto; /* pousse l'icône en bas mais centré */
 }
 
 .icon-container img {
@@ -491,5 +489,6 @@ button, .glass-button {
 
 /* --- MISC : évite les débords dus aux images/vidéos internes --- */
 img, video { max-width: 100%; height: auto; display: block; }
+
 
 

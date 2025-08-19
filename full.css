@@ -436,6 +436,7 @@ button:hover {
     left: 6px;
     font-size: 12px;
     padding: 3px 7px;
+    margin-bottom:12px;
   }
   .formation-title {
     font-size: 14px;
@@ -467,7 +468,7 @@ button:hover {
 
   /* Flèches */
   .arrow {
-    font-size: 1.1rem;    /* réduit la taille */
+    font-size: 1.8rem;    /* réduit la taille */
     padding: 6px 8px;
     bottom: 8px;
     top: auto;
@@ -491,5 +492,6 @@ button:hover {
     padding: 10px;
   }
 }
+
 
 

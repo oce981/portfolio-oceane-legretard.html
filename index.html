@@ -280,35 +280,15 @@
 </script>
 
 <!--Effet Gallerie-->
-<script defer>
+<script>
 document.addEventListener('DOMContentLoaded', () => {
-  const gallery = document.querySelector('.gallery');
-  if (!gallery) { console.warn('[gallery] pas trouvé'); return; }
-
-  [...gallery.querySelectorAll(':scope > img')].forEach(img => {
-    const wrap = document.createElement('div');
-    wrap.className = 'gallery-item';
-    wrap.setAttribute('data-desc', img.getAttribute('alt') || '');
-    img.replaceWith(wrap);
-    wrap.appendChild(img);
-    const ov = document.createElement('div');
-    ov.className = 'overlay';
-    wrap.appendChild(ov);
-  });
-
-  const items = [...gallery.querySelectorAll('.gallery-item')];
-  if (!items.length) { console.warn('[gallery-item] aucun élément'); return; }
+  const items = document.querySelectorAll('.gallery-item');
+  if (!items.length) return;
 
   items.forEach(item => {
-    let overlay = item.querySelector('.overlay');
-    if (!overlay) {
-      overlay = document.createElement('div');
-      overlay.className = 'overlay';
-      item.appendChild(overlay);
-    }
+    const overlay = item.querySelector('.overlay');
     const desc = item.getAttribute('data-desc') || '';
-    overlay.innerHTML = desc;
-    overlay.style.whiteSpace = 'pre-line'; // gère les \n
+    overlay.innerHTML = desc; 
   });
 
   items.forEach(item => {
@@ -324,12 +304,13 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') items.forEach(i => i.classList.remove('active'));
   });
-  console.log(`[gallery] OK — ${items.length} item(s)`);
 });
 </script>
+
 </body>
 
 </html>
+
 
 
 

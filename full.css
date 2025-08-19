@@ -360,3 +360,118 @@ button:hover {
   transform: scale(1.02);
   transition: transform 0.25s ease;
 }
+
+/* --- FIX GÉNÉRAUX MOBILE --- */
+
+/* Assure Outfit partout (au-dessus, Arial écrasait) */
+html, body {
+  font-family: Outfit, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif !important;
+  overflow-x: hidden; /* empêche les débordements horizontaux */
+}
+
+/* Remplace 100vw/100vh par des valeurs sûres (iOS) */
+section {
+  width: 100% !important;           /* au lieu de 100vw */
+  min-height: 100svh !important;    /* au lieu de 100vh */
+}
+
+/* Typo fluide — évite les textes énormes sur mobile */
+h1 { font-size: clamp(28px, 6vw, 45px) !important; }
+h2 { font-size: clamp(20px, 4.8vw, 30px) !important; }
+h3 { font-size: clamp(18px, 4.2vw, 25px) !important; }
+p  { font-size: clamp(15px, 4vw, 20px) !important; max-width: min(90vw, 800px); }
+
+/* Allège un peu le blur sur petits écrans (perf & lisibilité) */
+@media (max-width: 600px) {
+  section {
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+  }
+}
+
+/* --- NAV / HEADER (si fixe) : évite qu'il chevauche le contenu --- */
+main { padding-top: clamp(56px, 10vw, 80px); }
+
+/* --- FORMULAIRE : largeur et touch-friendly --- */
+form { width: min(92vw, 500px); margin: 2.5rem auto; }
+input, textarea, button { font-size: 1rem; }
+@media (max-width: 600px) {
+  form { padding: 1.25rem; border-radius: 16px; }
+}
+
+/* --- CAROUSEL LOGOS : resp plus doux --- */
+.carousel-container {
+  width: min(92vw, 900px);
+  padding: clamp(28px, 8vw, 60px) 0;
+  margin-top: clamp(24px, 8vw, 60px);
+  margin-bottom: clamp(24px, 8vw, 60px);
+}
+.logos { gap: clamp(10px, 3vw, 20px); }
+.logos img { width: clamp(44px, 8vw, 60px); height: clamp(44px, 8vw, 60px); }
+
+/* Flèches moins intrusives sur mobile */
+@media (max-width: 600px) {
+  .arrow { font-size: 1.4rem; padding: 10px 12px; }
+  .arrow-left { left: 6px; } .arrow-right { right: 6px; }
+}
+
+/* --- GALERIE HORIZONTALE : tailles en vw + scroll-snap --- */
+.gallery {
+  gap: clamp(10px, 3.5vw, 20px);
+  margin-top: clamp(24px, 8vw, 70px);
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+}
+
+.gallery-item {
+  width: min(80vw, 350px);
+  height: min(80vw, 350px);
+  border-radius: 12px;
+  scroll-snap-align: start;
+}
+
+.gallery-item .overlay {
+  padding: clamp(10px, 3.5vw, 16px);
+  font-size: clamp(14px, 3.6vw, 18px);
+  white-space: pre-line; /* pour gérer tes \n dans data-desc */
+}
+
+/* Désactive le “hover collant” sur mobile */
+@media (hover: hover) and (pointer: fine) {
+  .gallery img:hover { transform: scale(1.05); }
+}
+@media (hover: none) {
+  .gallery img:hover { transform: none; }
+}
+
+/* --- GRILLES / BLOCS FORMATION : casse en 2 puis 1 colonne --- */
+.container-formation {
+  gap: clamp(16px, 6vw, 50px);
+  padding: clamp(24px, 8vw, 60px) clamp(12px, 4vw, 20px);
+}
+
+@media (max-width: 900px) {
+  .formation-box { width: 260px; height: 220px; }
+}
+
+@media (max-width: 600px) {
+  .formation-box {
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+    padding: 18px 14px 22px;
+  }
+  .formation-title { font-size: clamp(16px, 4.2vw, 18px); }
+  .formation-year { font-size: 12px; }
+}
+
+/* --- BOUTONS : plus confortables au doigt --- */
+button, .glass-button {
+  font-size: clamp(16px, 4.2vw, 20px);
+  padding: clamp(10px, 3.2vw, 14px) clamp(16px, 4.5vw, 24px);
+  border-radius: 18px;
+}
+
+/* --- MISC : évite les débords dus aux images/vidéos internes --- */
+img, video { max-width: 100%; height: auto; display: block; }
+

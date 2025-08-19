@@ -278,20 +278,20 @@
 </script>
 
 <!--Effet Gallerie-->
-<script>
+<script defer>
+  document.addEventListener('DOMContentLoaded', () => {
   const items = document.querySelectorAll('.gallery-item');
+  if (!items.length) return;
 
-  // Injecte la description depuis data-desc
   items.forEach(item => {
-    const desc = item.getAttribute('data-desc') || '';
     const overlay = item.querySelector('.overlay');
-    overlay.innerHTML = desc;
+    if (!overlay) return;
+    const desc = item.getAttribute('data-desc') || '';
+    overlay.textContent = desc; // mets innerHTML si tu utilises <br>
   });
 
-  // Toggle au clic : ouvre/ferme, ferme les autres
   items.forEach(item => {
     item.addEventListener('click', (e) => {
-      // si on reclique sur la même: toggle
       const isActive = item.classList.contains('active');
       items.forEach(i => i.classList.remove('active'));
       if (!isActive) item.classList.add('active');
@@ -299,16 +299,10 @@
     });
   });
 
-  // Clique hors de la galerie => fermer tout
-  document.addEventListener('click', () => {
-    items.forEach(i => i.classList.remove('active'));
-  });
-
-  // Échappe (ESC) pour fermer
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') items.forEach(i => i.classList.remove('active'));
-  });
-</script>
+  document.addEventListener('click', () => items.forEach(i => i.classList.remove('active')));
+  document.addEventListener('keydown', (e) => e.key === 'Escape' && items.forEach(i => i.classList.remove('active')));
+});
 
 </body>
+
 </html>

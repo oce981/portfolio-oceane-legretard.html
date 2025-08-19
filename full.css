@@ -376,107 +376,120 @@ button:hover {
   transition: transform 0.25s ease;
 }
 
-/* =========================================================
-   FIX GLOBAL — centrage cartes formation (toutes tailles)
-   ========================================================= */
-.formation-box {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; /* titre en haut, icône en bas */
-  align-items: center;
-  padding: 14px 12px;
-}
-.formation-title { margin: 10px 8px 0; text-align: center; }
-.icon-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: auto;             /* pousse l’icône en bas */
-  padding-bottom: 8px;
-}
-.icon-container img { width: 40px; height: auto; }
-
-/* sécurise la hauteur des sections (iOS barre d'adresse) */
-@supports (height: 100svh) {
-  section { min-height: 100svh; }
-}
-
-/* =========================================================
-   MOBILE — ≤ 768px (Android + iOS)
-   ========================================================= */
+/* =======================
+   VERSION MOBILE
+   ======================= */
 @media (max-width: 768px) {
-  html, body { -webkit-text-size-adjust: 100%; }
-  section { padding: 20px 12px; min-height: auto; }
 
-  h1 { font-size: clamp(24px, 6vw, 30px); line-height: 1.2; text-align:center; }
-  h2 { font-size: clamp(18px, 4.8vw, 22px); line-height: 1.3; text-align:center; }
-  h3 { font-size: clamp(16px, 4.3vw, 18px); line-height: 1.3; text-align:center; }
-  p  { font-size: 15px; line-height: 1.5; max-width: 92vw; }
+  /* Général */
+  section {
+    padding: 20px 12px;
+    min-height: auto;
+  }
 
-  /* Formulaire (évite zoom iOS) */
-  form { max-width: 92vw; padding: 1.2rem; margin: 1.5rem auto; }
-  label { font-size: 0.95rem; }
-  input, textarea { font-size: 16px; padding: 0.85rem; }
-  button { width: 100%; font-size: 1rem; padding: 0.85rem 1rem; }
+  h1 {
+    font-size: 26px;
+    line-height: 1.2;
+    text-align: center;
+  }
+  h2 {
+    font-size: 20px;
+    line-height: 1.3;
+    text-align: center;
+  }
+  h3 {
+    font-size: 18px;
+    line-height: 1.3;
+    text-align: center;
+  }
+  p {
+    font-size: 15px;
+    line-height: 1.4;
+    text-align: center;
+    max-width: 92vw;
+  }
 
-  /* Cartes formation */
-  .container-formation { gap: 16px; padding: 22px 10px; }
-  .formation-box { width: 160px; height: 180px; }
-  .formation-year { top: 6px; left: 6px; font-size: 12px; padding: 3px 7px; }
-  .formation-title { font-size: 15px; }
-  .icon-container img { width: 32px; }
+  /* Boutons */
+  .glass-button,
+  button {
+    display: block;
+    width: 90%;           /* prend presque toute la largeur */
+    margin: 10px auto;    /* espace entre chaque bouton */
+    font-size: 16px;
+    padding: 12px 16px;
+  }
 
-  /* Carrousel logos */
+  /* Container de formation */
+  .container-formation {
+    gap: 14px;
+    padding: 20px 10px;
+  }
+  .formation-box {
+    width: 150px;
+    height: 170px;
+    padding: 10px;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .formation-year {
+    top: 6px;
+    left: 6px;
+    font-size: 12px;
+    padding: 3px 7px;
+  }
+  .formation-title {
+    font-size: 14px;
+    margin: 8px 0 0;
+  }
+  .icon-container img {
+    width: 28px;
+  }
+
+  /* Carrousel */
   .carousel-container {
-    width: 100%; max-width: none;
-    padding: 24px 0; margin: 20px 0; border-radius: 16px;
+    width: 100%;
+    padding: 20px 0;
+    margin: 20px auto;
   }
-  .slide h2 { font-size: 20px; margin-bottom: 16px; }
-  .logos { gap: 12px; padding: 0 8px; }
-  .logos img { width: 42px; height: 42px; }
+  .slide h2 {
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+  .logos {
+    gap: 10px;
+    padding: 0 8px;
+    flex-wrap: wrap;
+  }
+  .logos img {
+    width: 36px;
+    height: 36px;
+  }
 
+  /* Flèches */
   .arrow {
-    position: absolute; bottom: 10px; top: auto;
-    font-size: 1.3rem; padding: 8px 10px; transform: none;
+    font-size: 1.1rem;    /* réduit la taille */
+    padding: 6px 8px;
+    bottom: 8px;
+    top: auto;
   }
-  .arrow-left { left: 10px; } .arrow-right { right: 10px; }
+  .arrow-left { left: 8px; }
+  .arrow-right { right: 8px; }
 
-  /* Galerie horizontale */
-  .gallery { gap: 12px; padding: 6px 8px; margin-top: 24px; }
-  .gallery img, .gallery-item { width: 220px; height: 220px; border-radius: 10px; }
-  .gallery-item .overlay { padding: 12px; font-size: 13px; }
-}
-
-/* =========================================================
-   TABLETTE — 769px à 1024px
-   ========================================================= */
-@media (min-width: 769px) and (max-width: 1024px) {
-  section { padding: 28px 16px; }
-
-  h1 { font-size: 38px; }
-  h2 { font-size: 26px; }
-  h3 { font-size: 20px; }
-  p  { font-size: 18px; max-width: 90vw; }
-
-  form { max-width: 80vw; padding: 1.4rem; }
-  input, textarea { font-size: 17px; padding: 1rem; }
-  button { font-size: 1.05rem; padding: 0.9rem 1.5rem; }
-
-  .container-formation { gap: 26px; padding: 34px 16px; }
-  .formation-box { width: 200px; height: 210px; }
-  .formation-year { font-size: 13px; padding: 4px 8px; }
-  .formation-title { font-size: 17px; }
-  .icon-container img { width: 36px; }
-
-  .carousel-container { width: 90%; padding: 36px 0; margin: 26px auto; }
-  .slide h2 { font-size: 24px; margin-bottom: 18px; }
-  .logos { gap: 16px; }
-  .logos img { width: 52px; height: 52px; }
-  .arrow { font-size: 1.7rem; padding: 10px 12px; }
-
-  .gallery { gap: 16px; padding: 10px; margin-top: 28px; }
-  .gallery img, .gallery-item { width: 280px; height: 280px; border-radius: 12px; }
-  .gallery-item .overlay { padding: 14px; font-size: 15px; }
+  /* Galerie */
+  .gallery {
+    gap: 10px;
+    margin-top: 20px;
+    padding: 6px 8px;
+  }
+  .gallery img,
+  .gallery-item {
+    width: 180px;
+    height: 180px;
+  }
+  .gallery-item .overlay {
+    font-size: 12px;
+    padding: 10px;
+  }
 }
 
 

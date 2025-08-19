@@ -376,119 +376,240 @@ button:hover {
   transition: transform 0.25s ease;
 }
 
-/* --- FIX GÉNÉRAUX MOBILE --- */
 
-/* Assure Outfit partout (au-dessus, Arial écrasait) */
-html, body {
-  font-family: Outfit, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif !important;
-  overflow-x: hidden; /* empêche les débordements horizontaux */
-}
+/* ===========================
+   MOBILE (téléphones & petits écrans)
+   =========================== */
+@media (max-width: 768px) {
+  /* Général */
+  html, body {
+    font-family: Outfit, Arial, sans-serif;
+    -webkit-text-size-adjust: 100%;
+  }
+  * { -webkit-tap-highlight-color: transparent; }
 
-/* Remplace 100vw/100vh par des valeurs sûres (iOS) */
-section {
-  width: 100% !important;           /* au lieu de 100vw */
-  min-height: 100svh !important;    /* au lieu de 100vh */
-}
-
-/* Typo fluide — évite les textes énormes sur mobile */
-h1 { font-size: clamp(28px, 6vw, 45px) !important; }
-h2 { font-size: clamp(20px, 4.8vw, 30px) !important; }
-h3 { font-size: clamp(18px, 4.2vw, 25px) !important; }
-p  { font-size: clamp(15px, 4vw, 20px) !important; max-width: min(90vw, 800px); }
-
-/* Allège un peu le blur sur petits écrans (perf & lisibilité) */
-@media (max-width: 600px) {
   section {
-    backdrop-filter: blur(14px) saturate(140%);
-    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    min-height: auto;
+    padding: 20px 12px;
+    overflow: visible;
   }
-}
 
-/* --- NAV / HEADER (si fixe) : évite qu'il chevauche le contenu --- */
-main { padding-top: clamp(56px, 10vw, 80px); }
+  /* Titres + textes */
+  h1 { font-size: 30px; line-height: 1.2; text-align: center; }
+  h2 { font-size: 22px; line-height: 1.3; text-align: center; }
+  h3 { font-size: 18px; line-height: 1.3; text-align: center; }
+  p  { font-size: 15px; max-width: 92vw; line-height: 1.5; }
 
-/* --- FORMULAIRE : largeur et touch-friendly --- */
-form { width: min(92vw, 500px); margin: 2.5rem auto; }
-input, textarea, button { font-size: 1rem; }
-@media (max-width: 600px) {
-  form { padding: 1.25rem; border-radius: 16px; }
-}
-
-/* --- CAROUSEL LOGOS : resp plus doux --- */
-.carousel-container {
-  width: min(92vw, 900px);
-  padding: clamp(28px, 8vw, 60px) 0;
-  margin-top: clamp(24px, 8vw, 60px);
-  margin-bottom: clamp(24px, 8vw, 60px);
-}
-.logos { gap: clamp(10px, 3vw, 20px); }
-.logos img { width: clamp(44px, 8vw, 60px); height: clamp(44px, 8vw, 60px); }
-
-/* Flèches moins intrusives sur mobile */
-@media (max-width: 600px) {
-  .arrow { font-size: 1.4rem; padding: 10px 12px; }
-  .arrow-left { left: 6px; } .arrow-right { right: 6px; }
-}
-
-/* --- GALERIE HORIZONTALE : tailles en vw + scroll-snap --- */
-.gallery {
-  gap: clamp(10px, 3.5vw, 20px);
-  margin-top: clamp(24px, 8vw, 70px);
-  -webkit-overflow-scrolling: touch;
-  scroll-snap-type: x mandatory;
-}
-
-.gallery-item {
-  width: min(80vw, 350px);
-  height: min(80vw, 350px);
-  border-radius: 12px;
-  scroll-snap-align: start;
-}
-
-.gallery-item .overlay {
-  padding: clamp(10px, 3.5vw, 16px);
-  font-size: clamp(14px, 3.6vw, 18px);
-  white-space: pre-line; /* pour gérer tes \n dans data-desc */
-}
-
-/* Désactive le “hover collant” sur mobile */
-@media (hover: hover) and (pointer: fine) {
-  .gallery img:hover { transform: scale(1.05); }
-}
-@media (hover: none) {
-  .gallery img:hover { transform: none; }
-}
-
-/* --- GRILLES / BLOCS FORMATION : casse en 2 puis 1 colonne --- */
-.container-formation {
-  gap: clamp(16px, 6vw, 50px);
-  padding: clamp(24px, 8vw, 60px) clamp(12px, 4vw, 20px);
-}
-
-@media (max-width: 900px) {
-  .formation-box { width: 260px; height: 220px; }
-}
-
-@media (max-width: 600px) {
-  .formation-box {
+  /* Formulaire */
+  form { max-width: 92vw; margin: 2rem auto; padding: 1.25rem; }
+  label { font-size: 0.9rem; }
+  input, textarea {
+    font-size: 16px;           /* évite le zoom auto iOS */
+    padding: 0.8rem;
+  }
+  button {
     width: 100%;
-    max-width: 420px;
-    height: auto;
-    padding: 18px 14px 22px;
+    font-size: 1rem;
+    padding: 0.8rem 1rem;
   }
-  .formation-title { font-size: clamp(16px, 4.2vw, 18px); }
-  .formation-year { font-size: 12px; }
+
+  /* Cartes de formation */
+  .container-formation {
+    gap: 16px;
+    padding: 24px 10px;
+  }
+  .formation-box {
+    width: 160px;
+    height: 180px;
+    padding: 12px;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .formation-year {
+    top: 6px; left: 6px;
+    font-size: 12px; padding: 3px 7px;
+  }
+  .formation-title {
+    font-size: 15px;
+    margin: 12px 0 0;
+  }
+  .icon-container img { width: 32px; }
+
+  /* Carrousel de logos */
+  .carousel-container {
+    width: 100%;
+    max-width: none;
+    padding: 24px 0;
+    margin: 20px 0;
+    border-radius: 16px;
+  }
+  .slide h2 { font-size: 20px; margin-bottom: 16px; }
+  .logos { gap: 12px; padding: 0 8px; }
+  .logos img { width: 42px; height: 42px; }
+
+  .arrow {
+    font-size: 1.3rem;
+    padding: 8px 10px;
+    bottom: 10px;
+    transform: none;
+  }
+  .arrow-left  { left: 10px; }
+  .arrow-right { right: 10px; }
+
+  /* Galerie */
+  .gallery {
+    gap: 12px;
+    padding: 6px 8px;
+    margin-top: 24px;
+  }
+  .gallery img,
+  .gallery-item {
+    width: 220px;
+    height: 220px;
+    border-radius: 10px;
+  }
+  .gallery-item .overlay {
+    padding: 12px;
+    font-size: 13px;
+  }
 }
 
-/* --- BOUTONS : plus confortables au doigt --- */
-button, .glass-button {
-  font-size: clamp(16px, 4.2vw, 20px);
-  padding: clamp(10px, 3.2vw, 14px) clamp(16px, 4.5vw, 24px);
-  border-radius: 18px;
+/* ===========================
+   TRES PETITS TÉLÉPHONES
+   =========================== */
+@media (max-width: 420px) {
+  h1 { font-size: 24px; }
+  h2 { font-size: 18px; }
+  h3 { font-size: 16px; }
+  p  { font-size: 14px; }
+
+  .formation-box { width: 145px; height: 165px; }
+  .formation-title { font-size: 14px; }
+  .icon-container img { width: 28px; }
+
+  .logos img { width: 36px; height: 36px; }
+  .gallery img, .gallery-item { width: 180px; height: 180px; }
+  .gallery-item .overlay { font-size: 12px; padding: 10px; }
+
+  button { font-size: 0.95rem; padding: 0.7rem 1rem; }
 }
 
-/* --- MISC : évite les débords dus aux images/vidéos internes --- */
-img, video { max-width: 100%; height: auto; display: block; }
+/* ===========================
+   MOBILE (téléphones & petits écrans)
+   =========================== */
+@media (max-width: 768px) {
+  /* Général */
+  html, body {
+    font-family: Outfit, Arial, sans-serif;
+    -webkit-text-size-adjust: 100%;
+  }
+  * { -webkit-tap-highlight-color: transparent; }
+
+  section {
+    min-height: auto;
+    padding: 20px 12px;
+    overflow: visible;
+  }
+
+  /* Titres + textes */
+  h1 { font-size: 30px; line-height: 1.2; text-align: center; }
+  h2 { font-size: 22px; line-height: 1.3; text-align: center; }
+  h3 { font-size: 18px; line-height: 1.3; text-align: center; }
+  p  { font-size: 15px; max-width: 92vw; line-height: 1.5; }
+
+  /* Formulaire */
+  form { max-width: 92vw; margin: 2rem auto; padding: 1.25rem; }
+  label { font-size: 0.9rem; }
+  input, textarea {
+    font-size: 16px;           /* évite le zoom auto iOS */
+    padding: 0.8rem;
+  }
+  button {
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.8rem 1rem;
+  }
+
+  /* Cartes de formation */
+  .container-formation {
+    gap: 16px;
+    padding: 24px 10px;
+  }
+  .formation-box {
+    width: 160px;
+    height: 180px;
+    padding: 12px;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .formation-year {
+    top: 6px; left: 6px;
+    font-size: 12px; padding: 3px 7px;
+  }
+  .formation-title {
+    font-size: 15px;
+    margin: 12px 0 0;
+  }
+  .icon-container img { width: 32px; }
+
+  /* Carrousel de logos */
+  .carousel-container {
+    width: 100%;
+    max-width: none;
+    padding: 24px 0;
+    margin: 20px 0;
+    border-radius: 16px;
+  }
+  .slide h2 { font-size: 20px; margin-bottom: 16px; }
+  .logos { gap: 12px; padding: 0 8px; }
+  .logos img { width: 42px; height: 42px; }
+
+  .arrow {
+    font-size: 1.3rem;
+    padding: 8px 10px;
+    bottom: 10px;
+    transform: none;
+  }
+  .arrow-left  { left: 10px; }
+  .arrow-right { right: 10px; }
+
+  /* Galerie */
+  .gallery {
+    gap: 12px;
+    padding: 6px 8px;
+    margin-top: 24px;
+  }
+  .gallery img,
+  .gallery-item {
+    width: 220px;
+    height: 220px;
+    border-radius: 10px;
+  }
+  .gallery-item .overlay {
+    padding: 12px;
+    font-size: 13px;
+  }
+}
+
+/* ===========================
+   TRES PETITS TÉLÉPHONES
+   =========================== */
+@media (max-width: 420px) {
+  h1 { font-size: 24px; }
+  h2 { font-size: 18px; }
+  h3 { font-size: 16px; }
+  p  { font-size: 14px; }
+
+  .formation-box { width: 145px; height: 165px; }
+  .formation-title { font-size: 14px; }
+  .icon-container img { width: 28px; }
+
+  .logos img { width: 36px; height: 36px; }
+  .gallery img, .gallery-item { width: 180px; height: 180px; }
+  .gallery-item .overlay { font-size: 12px; padding: 10px; }
+
+  button { font-size: 0.95rem; padding: 0.7rem 1rem; }
+}
 
 
 

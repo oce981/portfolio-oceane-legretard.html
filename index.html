@@ -281,17 +281,42 @@
 
 <!--Effet Gallerie-->
 <script defer>
-  document.addEventListener('DOMContentLoaded', () => {
-  const items = document.querySelectorAll('.gallery-item');
-  if (!items.length) return;
+document.addEventListener('DOMContentLoaded', () => {
+  const gallery = document.querySelector('.gallery');
+  if (!gallery) { console.warn('[gallery] pas trouvé'); return; }
 
-  items.forEach(item => {
-    const overlay = item.querySelector('.overlay');
-    if (!overlay) return;
-    const desc = item.getAttribute('data-desc') || '';
-    overlay.textContent = desc; // mets innerHTML si tu utilises <br>
+  // 1) Auto-wrap : si on a mis des <img> directement dans .gallery, on les emballe en .gallery-item
+  [...gallery.querySelectorAll(':scope > img')].forEach(img => {
+    const wrap = document.createElement('div');
+    wrap.className = 'gallery-item';
+    wrap.setAttribute('data-desc', img.getAttribute('alt') || '');
+    img.replaceWith(wrap);
+    wrap.appendChild(img);
+    const ov = document.createElement('div');
+    ov.className = 'overlay';
+    wrap.appendChild(ov);
   });
 
+  // 2) Référence finale des items (qu’ils soient déjà bons ou auto-wrap)
+  const items = [...gallery.querySelectorAll('.gallery-item')];
+  if (!items.length) { console.warn('[gallery-item] aucun élément'); return; }
+
+  // 3) Injecter les descriptions et s’assurer du style de retour à la ligne
+  items.forEach(item => {
+    let overlay = item.querySelector('.overlay');
+    if (!overlay) {
+      overlay = document.createElement('div');
+      overlay.className = 'overlay';
+      item.appendChild(overlay);
+    }
+    const desc = item.getAttribute('data-desc') || '';
+    // Si tu utilises <br> dans data-desc, remplace par innerHTML :
+    // overlay.innerHTML = desc;
+    overlay.textContent = desc;
+    overlay.style.whiteSpace = 'pre-line'; // gère les \n
+  });
+
+  // 4) Gestion des clics (toggle + fermeture des autres)
   items.forEach(item => {
     item.addEventListener('click', (e) => {
       const isActive = item.classList.contains('active');
@@ -301,12 +326,18 @@
     });
   });
 
+  // 5) Fermer en cliquant hors galerie ou via Échap
   document.addEventListener('click', () => items.forEach(i => i.classList.remove('active')));
-  document.addEventListener('keydown', (e) => e.key === 'Escape' && items.forEach(i => i.classList.remove('active')));
-});
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') items.forEach(i => i.classList.remove('active'));
+  });
 
+  // 6) Petit log de santé
+  console.log(`[gallery] OK — ${items.length} item(s)`);
+});
 </body>
 
 </html>
+
 
 

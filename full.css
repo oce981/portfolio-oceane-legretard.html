@@ -200,6 +200,23 @@ button:hover {
   opacity: 1;
 }
 
+/*icones dans le containeur*/
+
+.icon-container {
+  display: flex;
+  flex-direction: column; /* image au-dessus, texte en dessous */
+  align-items: center;    /* centre horizontalement */
+  justify-content: center;
+  text-align: center;     /* centre le texte */
+  gap: 8px;               /* espace entre l’image et le texte */
+}
+
+.icon-container img {
+  width: 40px;
+  height: auto;
+}
+
+
   /*Carousel de logos*/
   .carousel-container {
     position: relative;
@@ -474,4 +491,5 @@ button, .glass-button {
 
 /* --- MISC : évite les débords dus aux images/vidéos internes --- */
 img, video { max-width: 100%; height: auto; display: block; }
+
 

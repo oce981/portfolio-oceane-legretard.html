@@ -387,27 +387,6 @@ button:hover {
     min-height: auto;
   }
 
-  h1 {
-    font-size: 20px;
-    line-height: 1.2;
-    text-align: center;
-  }
-  h2 {
-    font-size: 17px;
-    line-height: 1.3;
-    text-align: center;
-  }
-  h3 {
-    font-size: 14px;
-    line-height: 1.3;
-    text-align: center;
-  }
-  p {
-    font-size: 12px;
-    line-height: 1.4;
-    text-align: center;
-    max-width: 92vw;
-  }
 
   /* Boutons */
   .glass-button,
@@ -466,15 +445,6 @@ button:hover {
     height: 36px;
   }
 
-  /* Flèches */
-  .arrow {
-    font-size: 1.8rem;    /* réduit la taille */
-    padding: 4px 6px;
-    bottom: 6px;
-  }
-  .arrow-left { left: 6px; }
-  .arrow-right { right: 6px; }
-
   /* Galerie */
   .gallery {
     gap: 10px;
@@ -498,7 +468,66 @@ button:hover {
     display:block;
     margin:10px auto;  
   }
+  .carousel .arrow,
+  .carousel .controls,
+  .carousel button,
+  .swiper-button-next,
+  .swiper-button-prev,
+  .slick-prev, .slick-next { 
+    display: none !important;
+  }
+
+  /* 2) Hiérarchie des titres (H1 > H2 > H3) */
+  h1 { font-size: clamp(24px, 8vw, 34px); line-height: 1.15; }
+  h2 { font-size: clamp(20px, 6.4vw, 28px); line-height: 1.2; }
+  h3 { font-size: clamp(16px, 5.2vw, 22px); line-height: 1.25; }
+  /* optionnel : harmoniser les marges */
+  h1, h2, h3 { margin: 12px 0; }
+
+  /* 3) Grille d’images : 2 par ligne */
+  /* Mets cette classe sur le conteneur de tes vignettes (ex: section Infographies) */
+  .grid-2-mobile {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    align-items: start;
+  }
+  .grid-2-mobile img,
+  .grid-2-mobile a,
+  .grid-2-mobile .card {
+    width: 100%;
+    display: block;
+    border-radius: 12px;
+  }
+
+  /* 4) Vidéo en carte + texte dessous */
+  /* Structure conseillée : .project (wrap) -> .video-card + .project-text */
+  .project {
+    display: block;            /* casse la mise en colonnes sur mobile */
+  }
+  video {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 18px;
+    box-shadow: 0 10px 28px rgba(0,0,0,0.15);
+    padding: 10px;
+    backdrop-filter: blur(10px) saturate(130%);
+    -webkit-backdrop-filter: blur(10px) saturate(130%);
+    margin-bottom: 14px;       /* espace avec le texte */
+  }
+  video {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    display: block;
+  }
+  .project-text {
+    width: 100%;
+    font-size: clamp(14px, 4.4vw, 16px);
+    line-height: 1.5;
+  }
 }
+
 
 
 

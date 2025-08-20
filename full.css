@@ -515,7 +515,6 @@ button:hover {
     align-items: flex-start;
     justify-content: center;
     gap: 32px;
-    max-width: 1200px;
     margin: 40px auto;
     padding: 0 20px;
   }
@@ -536,7 +535,6 @@ button:hover {
 
   .project-text {
     flex: 1 1 45%;
-    max-width: 520px;
     order: 2;
     font-size: 18px;
     line-height: 1.65;
@@ -547,9 +545,6 @@ button:hover {
     margin-bottom: 14px;
   }
 
-  .project-text b {
-    font-weight: 600;
-  }
 
 
 

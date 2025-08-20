@@ -537,15 +537,20 @@ button:hover {
   .video-card video {
     width: 100% !important;
     height: auto !important;
-    margin-bottom: 12px;
+    display: block;
+    margin:0 auto 16px;
+    border-radius:12px;
   }
   .project-text {
     width: 100%;
+    margin:0;
     margin-top: 12px;
     font-size: clamp(13px, 4.2vw, 15px);
     line-height: 1.5;
+    text-align:left;
   }
 }
+
 
 
 

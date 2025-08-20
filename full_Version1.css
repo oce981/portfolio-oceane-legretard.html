@@ -52,7 +52,8 @@ h3 {font-family: Outfit; color: rgb(255, 255, 255);
       font-family: Outfit;
       font-size: 30px;
       color: white;
-      margin-bottom:15px;
+      margin-bottom:25px;
+      margin-top:25px;
     }
 
     p {
@@ -375,11 +376,12 @@ button:hover {
 .project {
   display: flex;
   align-items: flex-start;
-  gap: 24px;
+  gap: 45px;
   max-width: 1200px;
   margin: 0 auto;
   position: relative;
   z-index: 1;
+  padding-bottom:40px;
 }
 .video-card { 
   flex: 1 1 50%; 
@@ -391,7 +393,7 @@ button:hover {
   max-width: 600px;
   margin: 0;
   font-size: 16px;
-  line-height: 1.4; /* Moins espacé */
+  line-height: 1.6; /* Moins espacé */
   order: 1;                /* texte à gauche */
   text-align: justify;     /* Justifie le texte */
   font-family: Outfit, sans-serif;

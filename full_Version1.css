@@ -52,6 +52,7 @@ h3 {font-family: Outfit; color: rgb(255, 255, 255);
       font-family: Outfit;
       font-size: 30px;
       color: white;
+      margin-bottom:15px;
     }
 
     p {
@@ -490,12 +491,12 @@ button:hover {
   /* GALERIE (images plus petites en mobile) */
   .gallery {
     display: grid !important;
-    grid-template-columns: repeat(3, 1fr);  /* 3 colonnes = plus petit */
-    gap: 8px;                                /* espace réduit */
-    width: 95%;
-    margin: 0 auto;
+    grid-template-columns: repeat(2, 1fr);  
+    gap: 12px;                                /* espace réduit */
   }
-  .gallery-item img { border-radius: 8px; }
+  .gallery-item { max-width:100%; }
+
+  .gallery-item img {width:100%; height:auto; border-radius: 8px;}
 
   /* VIDÉO empilée (vidéo au-dessus, texte en dessous) */
   .project { display: block !important; }

@@ -382,6 +382,7 @@ button:hover {
   position: relative;
   z-index: 1;
   padding-bottom:40px;
+  padding-top:30px;
 }
 .video-card { 
   flex: 1 1 50%; 

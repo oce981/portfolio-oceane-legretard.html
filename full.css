@@ -375,6 +375,7 @@ button:hover {
   transform: scale(1.02);
   transition: transform 0.25s ease;
 }
+.project-text {margin-bottom: 15px}
 
 /* =======================
    VERSION MOBILE
@@ -566,6 +567,7 @@ button:hover {
     padding: 0 !important;
   }
 }
+
 
 
 

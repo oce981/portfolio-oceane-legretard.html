@@ -495,49 +495,24 @@ button:hover {
 }
 .gallery-item.show .overlay { display: block; }
 
-.video-card {
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  padding: 0 !important;
-}
-.video-card video {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 12px;
-}
-
-/* ========= DESKTOP/TABLETTE (par défaut) ========= */
-/* >>> IMPORTANT : ce bloc DOIT être HORS du @media mobile <<< */
-.project {
-  display: flex;                 /* vidéo à gauche, texte à droite */
-  align-items: flex-start;
-  gap: 24px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-.video-card { flex: 1 1 50%; max-width: 600px; }
-.project-text {
-  flex: 1 1 50%;
-  max-width: 600px;
-  margin: 0;
-  font-size: 16px;
-  line-height: 1.6;
-}
-
+/* ======= MOBILE ======= */
 @media (max-width: 768px) {
-
-  /* Images : 2 colonnes plus compactes */
+  /* Galerie images : 3 colonnes compactes */
   .gallery {
-    display: grid;
+    display: grid !important;
     grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
+    gap: 8px;              /* espace réduit */
+    width: 95%;            /* léger retrait des bords */
+    margin: 0 auto;
+  }
+  .gallery-item img {
+    border-radius: 8px;
   }
 
-  /* Vidéo : empiler vidéo puis texte et pleine largeur */
+  /* Vidéo empilée */
   .project { display: block !important; }
-  .video-card, .project-text {
+  .video-card,
+  .project-text {
     max-width: 100% !important;
     flex: none !important;
   }
@@ -557,6 +532,7 @@ button:hover {
     padding: 0 !important;
   }
 }
+
 
 
 

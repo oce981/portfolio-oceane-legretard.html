@@ -529,27 +529,44 @@ button:hover {
   line-height: 1.6;
 }
 
-/* Mobile : vidéo au-dessus, texte en dessous */
-@media (max-width: 768px) {
-  .project {
-    display: block;
+@media (max-width: 900px) {
+
+  /* Si tu as .project (vidéo + texte) */
+  .project { 
+    display: block !important;           /* texte sous la vidéo */
   }
-  .video-card video {
+  .video-card,
+  .project-text {
+    max-width: 100% !important;
+    flex: none !important;
+  }
+
+  /* Si tu n'as PAS .project et que tu utilises juste .video-card + .project-text */
+  .video-card + .project-text {
+    display: block !important;           /* garantit l’empilement */
+    margin-top: 12px !important;
+  }
+
+  /* Vidéo plein écran (on écrase les styles inline éventuels) */
+  .video-card video,
+  .video-card iframe {
     width: 100% !important;
     height: auto !important;
-    display: block;
-    margin:0 auto 16px;
-    border-radius:12px;
+    display: block !important;
+    margin: 0 0 14px 0 !important;
+    border-radius: 12px;
   }
+
+  /* Texte lisible en mobile */
   .project-text {
-    width: 100%;
-    margin:0;
-    margin-top: 12px;
-    margin-bottom:15px;
-    font-size: clamp(13px, 4.2vw, 15px);
-    line-height: 1.5;
+    font-size: clamp(13px, 4.2vw, 15px) !important;
+    line-height: 1.5 !important;
+    text-align: left !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
 }
+
 
 
 

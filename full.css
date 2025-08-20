@@ -511,23 +511,6 @@ button:hover {
   gap: 16px;
 }
 
-/* Mobile : images plus petites */
-@media (max-width: 768px) {
-  .gallery:not(:has(> video)) {
-    grid-template-columns: repeat(2, minmax(0, 1fr)); /* 2 colonnes */
-    gap: 10px;                 /* moins d’espace entre images */
-    width: 92%;                /* un peu plus étroit que l’écran */
-    margin: 0 auto;            /* centré */
-  }
-  .gallery:not(:has(> video)) .gallery-item {
-    border-radius: 10px;
-  }
-  .gallery:not(:has(> video)) .gallery-item img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: inherit;
-  }
 .video-card video {
   width: 100%;
   height: auto;
@@ -592,6 +575,7 @@ button:hover {
     padding: 0 !important;
   }
 }
+
 
 
 

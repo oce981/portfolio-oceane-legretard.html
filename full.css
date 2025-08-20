@@ -472,8 +472,8 @@ button:hover {
 
 .gallery-item {
   position: relative;
-  overflow: hidden;      /* empêche le débordement du texte */
-  border-radius: 12px;   /* optionnel : coins arrondis */
+  overflow: hidden;
+  border-radius: 12px;
 }
 .gallery-item img {
   display: block;
@@ -481,28 +481,26 @@ button:hover {
   height: auto;
   border-radius: inherit;
 }
-
-/* overlay qui reste dans l’image + scroll interne si texte long */
 .gallery-item .overlay {
   position: absolute;
-  inset: 0;                           /* top/right/bottom/left:0 */
-  display: none;                      /* visible uniquement quand .show */
+  inset: 0;
+  display: none;
   background: rgba(0,0,0,0.55);
   color: #fff;
   padding: 12px;
-  overflow: auto;                     /* scroll interne */
+  overflow: auto;
   -webkit-overflow-scrolling: touch;
   border-radius: inherit;
   backdrop-filter: blur(2px);
 }
 .gallery-item.show .overlay { display: block; }
-  .video-card {
+
+.video-card {
   background: transparent !important;
   border: none !important;
   box-shadow: none !important;
   padding: 0 !important;
 }
-
 .video-card video {
   width: 100%;
   height: auto;
@@ -510,18 +508,16 @@ button:hover {
   border-radius: 12px;
 }
 
-/* Desktop : vidéo gauche / texte droite */
+/* ========= DESKTOP/TABLETTE (par défaut) ========= */
+/* >>> IMPORTANT : ce bloc DOIT être HORS du @media mobile <<< */
 .project {
-  display: flex;
+  display: flex;                 /* vidéo à gauche, texte à droite */
   align-items: flex-start;
   gap: 24px;
-  max-width: 1200px;   /* optionnel : largeur max */
-  margin: 0 auto;      /* centrer */
+  max-width: 1200px;
+  margin: 0 auto;
 }
-.video-card {
-  flex: 1 1 50%;
-  max-width: 600px;
-}
+.video-card { flex: 1 1 50%; max-width: 600px; }
 .project-text {
   flex: 1 1 50%;
   max-width: 600px;
@@ -532,23 +528,19 @@ button:hover {
 
 @media (max-width: 768px) {
 
-  /* Si tu as .project (vidéo + texte) */
-  .project { 
-    display: block !important;           /* texte sous la vidéo */
+  /* Images : 2 colonnes plus compactes */
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
   }
-  .video-card,
-  .project-text {
+
+  /* Vidéo : empiler vidéo puis texte et pleine largeur */
+  .project { display: block !important; }
+  .video-card, .project-text {
     max-width: 100% !important;
     flex: none !important;
   }
-
-  /* Si tu n'as PAS .project et que tu utilises juste .video-card + .project-text */
-  .video-card + .project-text {
-    display: block !important;           /* garantit l’empilement */
-    margin-top: 12px !important;
-  }
-
-  /* Vidéo plein écran (on écrase les styles inline éventuels) */
   .video-card video,
   .video-card iframe {
     width: 100% !important;
@@ -557,16 +549,15 @@ button:hover {
     margin: 0 0 14px 0 !important;
     border-radius: 12px;
   }
-
-  /* Texte lisible en mobile */
   .project-text {
     font-size: clamp(13px, 4.2vw, 15px) !important;
     line-height: 1.5 !important;
     text-align: left !important;
-    margin: 0 !important;
+    margin: 12px 0 0 !important;
     padding: 0 !important;
   }
 }
+
 
 
 

@@ -425,12 +425,6 @@ button:hover {
     width: 28px;
   }
 
-  /* Carrousel */
-  .carousel-container {
-    width: 100%;
-    padding: 20px 0;
-    margin: 20px auto;
-  }
   .slide h2 {
     font-size: 18px;
     margin-bottom: 12px;
@@ -444,30 +438,7 @@ button:hover {
     width: 36px;
     height: 36px;
   }
-
-  /* Galerie */
-  .gallery {
-    gap: 10px;
-    margin-top: 20px;
-    padding: 6px 8px;
-  }
-  .gallery img,
-  .gallery-item {
-    width: 140px;
-    height: 140px;
-  }
-  .gallery-item .overlay {
-    font-size: 9px;
-    padding: 10px;
-  }
-  video {
-    width: 60% !important;
-    max-width: 500px;
-    height: auto; 
-    border-radius: 12px;
-    display:block;
-    margin:10px auto;  
-  }
+ 
   .carousel .arrow,
   .carousel .controls,
   .carousel button,
@@ -476,6 +447,14 @@ button:hover {
   .slick-prev, .slick-next { 
     display: none !important;
   }
+    .carousel-container .arrow,
+  .carousel-container .arrow-left,
+  .carousel-container .arrow-right {
+    display: none !important;
+  }
+
+  /* optionnel : un peu d'air une fois les flèches retirées */
+  .carousel-container { padding: 6px 0; }
 
   /* 2) Hiérarchie des titres (H1 > H2 > H3) */
   h1 { font-size: clamp(24px, 8vw, 34px); line-height: 1.15; }
@@ -484,28 +463,18 @@ button:hover {
   /* optionnel : harmoniser les marges */
   h1, h2, h3 { margin: 12px 0; }
 
-  /* 3) Grille d’images : 2 par ligne */
-  /* Mets cette classe sur le conteneur de tes vignettes (ex: section Infographies) */
-  .grid-2-mobile {
+.gallery {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 14px;
     align-items: start;
   }
-  .grid-2-mobile img,
-  .grid-2-mobile a,
-  .grid-2-mobile .card {
-    width: 100%;
-    display: block;
-    border-radius: 12px;
-  }
+  .gallery-item { width: 100%; }
+  .gallery-item img { width: 100%; height: auto; border-radius: 12px; display: block; }
 
-  /* 4) Vidéo en carte + texte dessous */
-  /* Structure conseillée : .project (wrap) -> .video-card + .project-text */
-  .project {
-    display: block;            /* casse la mise en colonnes sur mobile */
-  }
-  video {
+  /* Vidéo en “carte” + texte dessous */
+  .project { display: block; }
+  .video-card {
     background: rgba(255,255,255,0.12);
     border: 1px solid rgba(255,255,255,0.25);
     border-radius: 18px;
@@ -513,20 +482,17 @@ button:hover {
     padding: 10px;
     backdrop-filter: blur(10px) saturate(130%);
     -webkit-backdrop-filter: blur(10px) saturate(130%);
-    margin-bottom: 14px;       /* espace avec le texte */
+    margin-bottom: 14px;
   }
-  video {
-    width: 100%;
-    height: auto;
-    border-radius: 12px;
-    display: block;
-  }
+  .video-card video { width: 100% !important; height: auto !important; border-radius: 12px; display: block; }
   .project-text {
     width: 100%;
     font-size: clamp(14px, 4.4vw, 16px);
     line-height: 1.5;
+    margin: 0;
   }
 }
+
 
 
 

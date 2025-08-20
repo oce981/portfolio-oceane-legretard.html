@@ -1,0 +1,521 @@
+/*corps*/
+body {font-family: Outfit; color: rgb(255, 255, 255); justify-content: center; align-items: center;}
+h2 {font-family: Outfit; color: rgb(255, 255, 255); text-align: center; margin-top: 20px;}
+h3 {font-family: Outfit; color: rgb(255, 255, 255); 
+  font-size: 25px; text-align: center; margin-top: 20px;}
+/*conteneur*/
+ * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      scroll-behavior: smooth;
+      font-family: Arial, sans-serif;
+    }
+
+    section {
+      width: 100vw;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      backdrop-filter: blur(20px) saturate(150%);
+      -webkit-backdrop-filter: blur(20px) saturate(150%);
+      position: relative;
+      overflow: visible;
+    }
+
+    section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 0% 0%, var(--c1), var(--c2), var(--c3), var(--c4), var(--c5));
+      filter: blur(50px);
+      opacity: 0.6;
+      z-index: -1;
+    }
+
+    h1 {
+      font-family: Outfit;
+      font-size: 45px;
+      color: white;
+    }
+
+    h2 {
+      font-family: Outfit;
+      font-size: 30px;
+      color: white;
+    }
+
+    p {
+      font-family: Outfit;
+      font-size: 25px;
+      color: white;
+      max-width: 800px;
+      text-align: center;
+    }
+
+    .distort {
+      will-change: transform;
+      transition: transform 0.3s ease-out;}
+
+/* Formulaire de contact*/
+form {
+  max-width: 500px;
+  margin: 4rem auto;
+  padding: 2rem;
+  border-radius: 20px;
+  backdrop-filter: blur(25px) saturate(180%);
+  -webkit-backdrop-filter: blur(25px) saturate(180%);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  color: white;
+  font-family: Outfit;
+}
+
+label {
+  display: block;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 0.8rem;
+  margin-top: 0.3rem;
+  border: none;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.2);
+  color: white;
+  font-size: 1rem;
+  outline: none;
+}
+
+button {
+  padding: 0.8rem 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px) saturate(150%);
+  -webkit-backdrop-filter: blur(15px) saturate(150%);
+  color: white;
+  font-family: Outfit;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow:
+    0 4px 15px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 -1px 4px rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+}
+button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow:
+    0 6px 20px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -2px 6px rgba(255, 255, 255, 0.3);
+  transform: scale(1.03);}
+
+.glass-button {
+  padding: 1rem 2.5rem;
+  border-radius: 20px;
+  background: rgba(247, 93, 134, 0.602); /* ton rose légèrement atténué */
+  backdrop-filter: blur(15px) saturate(180%);
+  -webkit-backdrop-filter: blur(15px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(249, 106, 144, 0.68); /* glow de base */
+  transition: transform 0.2s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-button:hover {
+  transform: scale(1.05);
+  background: rgba(248, 115, 150, 0.35); /* un peu plus intense au survol */
+  box-shadow: 0 6px 30px rgba(248, 115, 150, 0.5); /* glow plus fort */
+}
+
+/*skills*/
+.container-formation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  padding: 60px 20px;
+  flex-wrap: wrap;
+}
+
+.formation-box {
+  width: 220px;
+  height: 220px;
+  border-radius: 20px;
+  background: rgba(106, 158, 247, 0.497);
+  backdrop-filter: blur(25px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  font-family: Outfit;
+  color: white;
+  text-align: center;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 15px;
+}
+
+.formation-box:hover {
+  transform: scale(1.03);
+}
+
+.formation-year{
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-weight: bold ;
+  font-size: 14px;
+  margin-bottom:12px
+}
+
+.formation-title {
+  margin-top: 0;
+  line-height: 1.4;
+  font-weight: bold;
+  font-size: 18px;
+  opacity: 1;
+}
+
+/*icones dans le containeur*/
+
+.icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto; /* pousse l'icône en bas mais centré */
+}
+
+.icon-container img {
+  width: 40px;
+  height: auto;
+}
+
+
+  /*Carousel de logos*/
+  .carousel-container {
+    position: relative;
+    width: 80%;
+    max-width: 900px;
+    overflow: hidden;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.15);
+    padding: 60px 0;
+    margin-top: 60px;
+    margin-bottom: 60px;
+  }
+
+  .slides {
+    display: flex;
+    transition: transform 0.6s ease-in-out;
+  }
+
+  .slide {
+    min-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .slide h2 {
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 30px;
+  }
+
+  .logos {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .logos img {
+    width: 60px;
+    height: 60px;
+    transition: transform 0.5s ease;
+    cursor: pointer;
+  }
+
+  .logos img:hover {
+    transform: scale(1.2);
+  }
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,.20);          /* effet glass */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,.35);
+  box-shadow: 0 8px 24px rgba(0,0,0,.15), inset 0 0 30px rgba(255,255,255,.15);
+  font-size: 2rem;
+  padding: 14px 20px;
+  border-radius: 999px;
+  cursor: pointer;
+  z-index: 2;
+  user-select: none;
+}
+
+
+/* Placement des flèches */
+.arrow-left  { left: 10px; }
+.arrow-right { right: 10px; }
+
+/* On supprime tout effet hover/click/focus */
+.arrow:hover,
+.arrow:active,
+.arrow:focus {
+  outline: none;
+  box-shadow: 0 8px 24px rgba(0,0,0,.15), inset 0 0 30px rgba(255,255,255,.15);
+  transform: translateY(-50%); /* reste fixe */
+}
+
+/*Galerie*/
+  .gallery {
+      display: flex;              /* met les images en ligne */
+      gap: 20px;                  /* espace entre les images */
+      overflow-x: auto;           /* permet de scroller si trop d’images */
+      padding: 10px;
+      margin-top: 70px;
+    }
+
+    .gallery img {
+      width: 350px;               /* taille fixe des images */
+      height: 350px;
+      object-fit: cover;          /* garde un bon cadrage */
+      border-radius: 8px;
+      flex-shrink: 0;             /* empêche les images de rétrécir */
+      transition: transform 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);     /* petit zoom au survol */
+    }
+
+    /* optionnel : personnaliser la barre de scroll */
+    .gallery::-webkit-scrollbar {
+      height: 8px;
+    }
+    .gallery::-webkit-scrollbar-thumb {
+      background: #aaa;
+      border-radius: 10px;
+    }
+   .gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+}
+.gallery-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: inherit;
+}
+.gallery-item .overlay {
+  position: absolute;
+  inset: 0;
+  display: none;
+  background: rgba(0,0,0,0.55);
+  color: #fff;
+  padding: 12px;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: inherit;
+  backdrop-filter: blur(2px);
+  /* Correction: police et justification */
+  font-family: Outfit, sans-serif !important;
+  text-align: justify;
+  line-height: 1.4;
+}
+.gallery-item.show .overlay { display: block; }
+
+/* Vidéo : pas de “carte” et layout desktop (vidéo droite / texte gauche) */
+.video-card {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+.video-card video,
+.video-card iframe {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+}
+
+/* Desktop / tablette : vidéo à droite, texte à gauche */
+.project {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+.video-card { 
+  flex: 1 1 50%; 
+  max-width: 600px; 
+  order: 2;                /* vidéo à droite */
+}
+.project-text {
+  flex: 1 1 50%;
+  max-width: 600px;
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.4; /* Moins espacé */
+  order: 1;                /* texte à gauche */
+  text-align: justify;     /* Justifie le texte */
+  font-family: Outfit, sans-serif;
+  z-index: 1;
+  background: transparent;
+}
+
+/* fait en sorte que l'image occupe tout le bloc */
+.gallery-item > img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: inherit;
+}
+
+/* Etat ouvert */
+.gallery-item.active .overlay {
+  opacity: 1;
+  pointer-events: auto;       /* cliquable si besoin */
+}
+
+/* Optionnel : petit fondu sur l'image quand overlay ouvert */
+.gallery-item.active img {
+  transform: scale(1.02);
+  transition: transform 0.25s ease;
+}
+
+/* =======================
+   VERSION MOBILE
+   ======================= */
+@media (max-width: 768px) {
+
+  /* Général */
+  section {
+    padding: 20px 12px;
+    min-height: auto;
+  }
+
+  /* Boutons */
+  .glass-button,
+  button {
+    display: block;
+    width: 90%;
+    margin: 10px auto;
+    font-size: 16px;
+    padding: 12px 16px;
+  }
+
+  /* Container de formation */
+  .container-formation {
+    gap: 14px;
+    padding: 20px 10px;
+  }
+  .formation-box {
+    width: 150px;
+    height: 170px;
+    padding: 10px;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .formation-year {
+    top: 6px;
+    left: 6px;
+    font-size: 12px;
+    padding: 3px 7px;
+    margin-bottom: 12px;
+  }
+  .formation-title { font-size: 14px; margin-top: 12px; }
+  .icon-container img { width: 28px; }
+
+  .slide h2 { font-size: 18px; margin-bottom: 12px; }
+  .logos { gap: 10px; padding: 0 8px; flex-wrap: wrap; }
+  .logos img { width: 36px; height: 36px; }
+
+  /* Cacher les flèches en mobile */
+  .carousel .arrow,
+  .carousel .controls,
+  .carousel button,
+  .swiper-button-next,
+  .swiper-button-prev,
+  .slick-prev, .slick-next { 
+    display: none !important;
+  }
+  .carousel-container .arrow,
+  .carousel-container .arrow-left,
+  .carousel-container .arrow-right {
+    display: none !important;
+  }
+  .carousel-container { padding: 6px 0; }
+
+  /* Titres (tu peux garder ou supprimer si tu ne veux rien toucher aux titres) */
+  h1 { font-size: clamp(22px, 8vw, 34px); line-height: 1.15; }
+  h2 { font-size: clamp(18px, 6.4vw, 28px); line-height: 1.2; }
+  h3 { font-size: clamp(14px, 5.2vw, 22px); line-height: 1.25; }
+  h1, h2, h3 { margin: 12px 0; }
+
+  /* GALERIE (images plus petites en mobile) */
+  .gallery {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr);  /* 3 colonnes = plus petit */
+    gap: 8px;                                /* espace réduit */
+    width: 95%;
+    margin: 0 auto;
+  }
+  .gallery-item img { border-radius: 8px; }
+
+  /* VIDÉO empilée (vidéo au-dessus, texte en dessous) */
+  .project { display: block !important; }
+  .video-card, .project-text {
+    max-width: 100% !important;
+    flex: none !important;
+  }
+  .video-card video,
+  .video-card iframe {
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    margin: 0 0 14px 0 !important;
+    border-radius: 12px;
+  }
+  .project-text {
+    font-size: clamp(13px, 4.2vw, 15px) !important;
+    line-height: 1.5 !important;
+    text-align: left !important;
+    margin: 12px 0 0 !important;
+    padding: 0 !important;
+  }
+}

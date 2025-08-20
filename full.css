@@ -463,34 +463,63 @@ button:hover {
   /* optionnel : harmoniser les marges */
   h1, h2, h3 { margin: 12px 0; }
 
-.gallery {
+ .gallery {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 14px;
-    align-items: start;
-  }
-  .gallery-item { width: 100%; }
-  .gallery-item img { width: 100%; height: auto; border-radius: 12px; display: block; }
-
-  /* Vidéo en “carte” + texte dessous */
-  .video-card {
-    background: rgba(255,255,255,0.12);
-    border: 1px solid rgba(255,255,255,0.25);
-    border-radius: 18px;
-    box-shadow: 0 10px 28px rgba(0,0,0,0.15);
-    padding: 10px;
-    backdrop-filter: blur(10px) saturate(130%);
-    -webkit-backdrop-filter: blur(10px) saturate(130%);
-    margin-bottom: 14px;
-  }
-  .video-card video { width: 100% !important; height: auto !important; border-radius: 12px; display: block; }
-  .project-text {
-    width: 100%;
-    font-size: clamp(14px, 4.4vw, 16px);
-    line-height: 1.5;
-    margin: 0;
   }
 }
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;      /* empêche le débordement du texte */
+  border-radius: 12px;   /* optionnel : coins arrondis */
+}
+.gallery-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: inherit;
+}
+
+/* overlay qui reste dans l’image + scroll interne si texte long */
+.gallery-item .overlay {
+  position: absolute;
+  inset: 0;                           /* top/right/bottom/left:0 */
+  display: none;                      /* visible uniquement quand .show */
+  background: rgba(0,0,0,0.55);
+  color: #fff;
+  padding: 12px;
+  overflow: auto;                     /* scroll interne */
+  -webkit-overflow-scrolling: touch;
+  border-radius: inherit;
+  backdrop-filter: blur(2px);
+}
+.gallery-item.show .overlay { display: block; }
+  /* Vidéo en “carte” + texte dessous */
+/* supprime tout “carré violet” sous la vidéo */
+.video-card {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+/* layout desktop conservé : vidéo + texte côte à côte */
+.project {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+}
+  .video-card video,
+  .video-card iframe {
+    width: 100% !important;
+    height: auto !important;
+    display: block;
+    border-radius: 12px;
+  }
+}
+
 
 
 

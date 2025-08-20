@@ -52,8 +52,8 @@ h3 {font-family: Outfit; color: rgb(255, 255, 255);
       font-family: Outfit;
       font-size: 30px;
       color: white;
-      margin-bottom:25px;
-      margin-top:25px;
+      margin-bottom:40px;
+      margin-top:40px;
     }
 
     p {
@@ -308,8 +308,8 @@ button:hover {
     }
 
     .gallery img {
-      width: 280px;               /* taille fixe des images */
-      height: 280px;
+      width: 270px;               /* taille fixe des images */
+      height: 270px;
       object-fit: cover;          /* garde un bon cadrage */
       border-radius: 8px;
       flex-shrink: 0;             /* empêche les images de rétrécir */

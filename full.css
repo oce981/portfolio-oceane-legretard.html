@@ -509,41 +509,7 @@ button:hover {
     padding: 0 !important;
   }
 }
-@media (min-width: 769px) {
-  .project {
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    gap: 32px;
-    margin: 40px auto;
-    padding: 0 20px;
-  }
 
-  .video-card {
-    flex: 0 1 55%;
-    max-width: 680px;
-    order: 1;
-  }
-
-  .video-card video {
-    width: 100%;
-    aspect-ratio: 16/9;
-    object-fit: cover;
-    border-radius: 14px;
-    display: block;
-  }
-
-  .project-text {
-    flex: 1 1 45%;
-    order: 2;
-    font-size: 18px;
-    line-height: 1.65;
-    text-align: left;
-  }
-
-  .project-text p {
-    margin-bottom: 14px;
-  }
 
 
 

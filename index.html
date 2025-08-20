@@ -309,9 +309,30 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 
+    <script>
+  // Toggle overlay au clic, sans débordement
+  document.querySelectorAll('.gallery-item').forEach(item => {
+    item.addEventListener('click', () => {
+      const isOpen = item.classList.contains('show');
+      document.querySelectorAll('.gallery-item').forEach(i => i.classList.remove('show'));
+      if (!isOpen) item.classList.add('show');
+    });
+  });
+
+  // Fermer l’overlay si on clique dedans (facultatif)
+  document.addEventListener('click', (e) => {
+    const ov = e.target.closest('.overlay');
+    if (ov) {
+      ov.parentElement.classList.remove('show');
+      e.stopPropagation();
+    }
+  });
+</script>
+
 </body>
 
 </html>
+
 
 
 

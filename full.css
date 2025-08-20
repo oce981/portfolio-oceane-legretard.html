@@ -388,12 +388,12 @@ button:hover {
   }
 
   h1 {
-    font-size: 26px;
+    font-size: 20px;
     line-height: 1.2;
     text-align: center;
   }
   h2 {
-    font-size: 20px;
+    font-size: 17px;
     line-height: 1.3;
     text-align: center;
   }
@@ -403,7 +403,7 @@ button:hover {
     text-align: center;
   }
   p {
-    font-size: 15px;
+    font-size: 12px;
     line-height: 1.4;
     text-align: center;
     max-width: 92vw;
@@ -468,7 +468,7 @@ button:hover {
 
   /* Flèches */
   .arrow {
-    font-size: 0.9rem;    /* réduit la taille */
+    font-size: 1.8rem;    /* réduit la taille */
     padding: 4px 6px;
     bottom: 6px;
   }
@@ -483,15 +483,15 @@ button:hover {
   }
   .gallery img,
   .gallery-item {
-    width: 180px;
-    height: 180px;
+    width: 140px;
+    height: 140px;
   }
   .gallery-item .overlay {
-    font-size: 12px;
+    font-size: 9px;
     padding: 10px;
   }
   video {
-    width: 90% !important;
+    width: 60% !important;
     max-width: 500px;
     height: auto; 
     border-radius: 12px;
@@ -499,6 +499,7 @@ button:hover {
     margin:10px auto;  
   }
 }
+
 
 
 

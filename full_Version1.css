@@ -308,8 +308,8 @@ button:hover {
     }
 
     .gallery img {
-      width: 270px;               /* taille fixe des images */
-      height: 270px;
+      width: 250px;               /* taille fixe des images */
+      height: 250px;
       object-fit: cover;          /* garde un bon cadrage */
       border-radius: 8px;
       flex-shrink: 0;             /* empêche les images de rétrécir */

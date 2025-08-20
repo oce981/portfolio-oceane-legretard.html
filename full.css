@@ -496,35 +496,57 @@ button:hover {
   backdrop-filter: blur(2px);
 }
 .gallery-item.show .overlay { display: block; }
-  /* Vidéo en “carte” + texte dessous */
-/* supprime tout “carré violet” sous la vidéo */
-.video-card {
+  .video-card {
   background: transparent !important;
   border: none !important;
   box-shadow: none !important;
   padding: 0 !important;
 }
+.video-card video {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+}
 
-/* layout desktop conservé : vidéo + texte côte à côte */
+/* Desktop : vidéo gauche / texte droite */
 .project {
   display: flex;
   align-items: flex-start;
   gap: 24px;
+  max-width: 1200px;   /* optionnel : largeur max */
+  margin: 0 auto;      /* centrer */
 }
-  .video-card video,
-  .video-card iframe {
+.video-card {
+  flex: 1 1 50%;
+  max-width: 600px;
+}
+.project-text {
+  flex: 1 1 50%;
+  max-width: 600px;
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Mobile : vidéo au-dessus, texte en dessous */
+@media (max-width: 768px) {
+  .project {
+    display: block;
+  }
+  .video-card video {
     width: 100% !important;
     height: auto !important;
-    display: block;
-    border-radius: 12px;
+    margin-bottom: 12px;
   }
- .project-text {
+  .project-text {
     width: 100%;
+    margin-top: 12px;
     font-size: clamp(13px, 4.2vw, 15px);
     line-height: 1.5;
-    margin-top: 12px;
   }
 }
+
 
 
 

@@ -457,9 +457,9 @@ button:hover {
   .carousel-container { padding: 6px 0; }
 
   /* 2) Hiérarchie des titres (H1 > H2 > H3) */
-  h1 { font-size: clamp(24px, 8vw, 34px); line-height: 1.15; }
-  h2 { font-size: clamp(20px, 6.4vw, 28px); line-height: 1.2; }
-  h3 { font-size: clamp(16px, 5.2vw, 22px); line-height: 1.25; }
+  h1 { font-size: clamp(22px, 8vw, 34px); line-height: 1.15; }
+  h2 { font-size: clamp(18px, 6.4vw, 28px); line-height: 1.2; }
+  h3 { font-size: clamp(14px, 5.2vw, 22px); line-height: 1.25; }
   /* optionnel : harmoniser les marges */
   h1, h2, h3 { margin: 12px 0; }
 
@@ -473,7 +473,6 @@ button:hover {
   .gallery-item img { width: 100%; height: auto; border-radius: 12px; display: block; }
 
   /* Vidéo en “carte” + texte dessous */
-  .project { display: block; }
   .video-card {
     background: rgba(255,255,255,0.12);
     border: 1px solid rgba(255,255,255,0.25);
@@ -492,6 +491,7 @@ button:hover {
     margin: 0;
   }
 }
+
 
 
 

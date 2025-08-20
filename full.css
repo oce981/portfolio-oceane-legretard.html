@@ -528,13 +528,6 @@ button:hover {
     display: block;
     border-radius: inherit;
   }
-}
-
-/* (optionnel) encore plus petit en très petit écran */
-@media (max-width: 420px) {
-  .gallery:not(:has(> video)) {
-    grid-template-columns: repeat(3, minmax(0, 1fr)); /* 3 colonnes si tu veux très compact */
-  }
 .video-card video {
   width: 100%;
   height: auto;
@@ -599,6 +592,7 @@ button:hover {
     padding: 0 !important;
   }
 }
+
 
 
 

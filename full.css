@@ -503,14 +503,6 @@ button:hover {
   padding: 0 !important;
 }
 
-  /* ——— IMAGES UNIQUEMENT ——— */
-/* Base desktop/tablette (ne touche pas à .project pour la vidéo) */
-.gallery:not(:has(> video)) {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr)); /* 3 colonnes sur large */
-  gap: 16px;
-}
-
 .video-card video {
   width: 100%;
   height: auto;
@@ -575,6 +567,7 @@ button:hover {
     padding: 0 !important;
   }
 }
+
 
 
 
